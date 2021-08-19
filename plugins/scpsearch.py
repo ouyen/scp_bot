@@ -10,11 +10,6 @@ async def search_scp(session:CommandSession):
     if key=='':
         reply='内容不能为空'
     else:
-        db='db.txt'
-        f=open(db,'r',encoding='utf-8')
-        data=f.read()
-        f.close()
-
         try:
             con=sqlite3.connect('scp.db')
             cur=con.cursor()
