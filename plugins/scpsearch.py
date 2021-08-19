@@ -16,8 +16,6 @@ async def search_scp(session:CommandSession):
         f.close()
 
         try:
-            # @name@“生活”室@num@SCP-002
-            # answers=findall('@name@.*?'+key+'.*?@num@.+',data)
             con=sqlite3.connect('scp.db')
             cur=con.cursor()
             key=key.replace("[","[[]").replace("_","[_]").replace("%","[%]")

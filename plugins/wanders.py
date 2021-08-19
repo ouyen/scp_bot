@@ -15,16 +15,5 @@ async def get_wanders(receive: str) -> str:
         temp='-'.join(a)
         url=SCP_DOMAIN[SCP_DOMAIN_INDEX]+'wanderers:'+temp
         return url
-        # try:
-        #     r=get(url,timeout=30)
-        #     r.raise_for_status()
-        #     return url
-        # except:
-        #     try:
-        #         url='https://wanderers-library.wikidot.com/'+temp
-        #         r=get(url,timrout=30)
-        #         r.raise_for_status()
-        #         return f'此页面尚未翻译，英文页面如下：\n'+url
-        #     except:
-        #         return f'此页面不存在'
+
 
