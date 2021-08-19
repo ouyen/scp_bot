@@ -1,0 +1,7 @@
+__pycache__/
+plugins/__pycache__/
+config.json
+*.html
+plugins/setu.py
+*.ipynb
+config.py
