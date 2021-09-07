@@ -12,10 +12,10 @@ TULING_API_KEYs=[
         ""
 ]
 
-SCP_DOMAIN=['http://scp-wiki-cn.wikidot.com/']
+SCP_DOMAIN=['http://scp-wiki-cn.wikidot.com/','https://ouyen.github.io/scp_bot/']
 
-SCP_DOMAIN_INDEX=0
+SCP_DOMAIN_INDEX=1
 
 SETU_API_KEY=''
 
-HELP_MESSAGE=''
+HELP_MESSAGE='https://ouyen.github.io/scp_bot/'
