@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta id="viewport" name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title></title>
+    <script>
+        function __loadResError() {
+            setTimeout(() => {
+                var theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 1 : 0;
+                new Image().src = 'https://support.weixin.qq.com/cgi-bin/mmsupportmeshnodelogicsvr-bin/cube?biz=1798&scene=4&theme=' + theme;
+            }, 10);
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" onerror="__loadResError(this)"
+        href="https://res.wx.qq.com/open/libs/weui/2.4.2/weui.min.css" />
+    <style>
+        body {
+            background-color: var(--weui-BG-2);
+            color: var(--weui-FG-0);
+        }
+    </style>
+    <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/css/banurl.88bd439b.css" rel="preload" as="style">
+    <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/banurl.1a2bf8d3.js" rel="preload" as="script">
+    <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/chunk-vendors.9f28b686.js" rel="preload" as="script">
+    <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/css/banurl.88bd439b.css" rel="stylesheet">
+
+
+    <!-- begin -->
+    <script>
+        function go() {
+            var now_url = window.location.href;
+            if (now_url.indexOf("scp-pku") > -1) {
+                var real_url = now_url.replace("https://ouyen.github.io/scp_bot/", "https://scpsandboxcn.wikidot.com/")
+            }
+            else {
+                var real_url = now_url.replace("https://ouyen.github.io/scp_bot/", "http://scp-wiki-cn.wikidot.com/")
+            }
+
+            window.location.replace(real_url)
+        }
+        var go_continue = true;
+        function judge_and_go() {
+            // alert("judge");
+            // console.log()
+            var ua = navigator.userAgent.toLocaleLowerCase();
+            console.log(ua);
+            var is_tencent = false
+            if (ua.indexOf(' qq') > -1 && ua.indexOf('mqqbrowser') > -1) {
+                //qq内置浏览器
+                // alert("Q!");
+                is_tencent = true;
+                return;
+            }
+            if (ua.indexOf('mqqbrowser') > -1 && ua.indexOf(" qq") < 0) {
+                //qq浏览器
+                is_tencent = true;
+                return;
+            }
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                //微信浏览器
+                is_tencent = true;
+                return;
+            }
+            // alert('jueged!');
+            if (is_tencent) {
+
+            }
+
+            else {
+                go_continue = false;
+                go();
+                return;
+            }
+        }
+        judge_and_go();
+    </script>
+    <!-- end -->
+
+
+
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        var cgiData = {
+            "retcode": 0,
+            "type": "block",
+            "title": "腾讯内置的浏览器已停止访问该网页",
+            "desc": "请使用外置浏览器打开此网址,用外置浏览器打开后会自动跳转至此网址:",
+            "btns": [{
+                "name": "申请恢复访问",
+                "url": "", "type": "primary"
+            }],
+            "links": [{ "name": "客服指引", "url": "" },
+            { "name": "查看规则", "url": "" }]
+        };
+    </script>
+    <script src="https://res.wx.qq.com/a/wx_fed/cdn_libs/res/vue/2.6.11/vue.min.js"></script>
+
+    <!-- begin -->
+    <center>
+        <br>
+        <p>如果没有成功跳转请点击按钮:</p>
+        <br>
+        <button type="submit" class="button1" onclick="go()" style="width:16%;height:10%">GO</button>
+    </center>
+
+    <!-- end -->
+
+    <script type="text/javascript" src="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/chunk-vendors.9f28b686.js">
+    </script>
+    <script type="text/javascript" src="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/banurl.1a2bf8d3.js">
+    </script>
+</body>
+
+</html>
