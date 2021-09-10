@@ -5,3 +5,4 @@ config.json
 # plugins/setu.py
 *.ipynb
 config.py
+workspace.code-workspace

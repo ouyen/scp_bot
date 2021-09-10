@@ -72,7 +72,7 @@ scp名称以网站上的汇总名称（如 http://scp-wiki-cn.wikidot.com/scp-se
 
 ## 1.7 去tmd小程序
 
-提取群聊/私发的qq小程序链接，已知支持bilibili,zhihu小程序，不支持微薄小程序
+提取群聊/私发的qq小程序链接，已知支持bilibili,zhihu,weibo小程序
 
 ## ~~1.8 发色图~~
 
@@ -82,7 +82,7 @@ scp名称以网站上的汇总名称（如 http://scp-wiki-cn.wikidot.com/scp-se
 >命令关键词：help
 
 获得此文档链接
-## 2.0. 关于bot
+## 1.10. 关于bot
 
 版本：v2.0
 
