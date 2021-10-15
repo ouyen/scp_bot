@@ -32,7 +32,7 @@
     <script>
         function go() {
             var now_url = window.location.href;
-            var tmp=url.split('/');
+            var tmp=now_url.split('/');
             tmp[0]="http";
             tmp.splice(3,1);
             if (now_url.indexOf("scp-pku") > -1) {
