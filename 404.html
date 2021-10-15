@@ -32,13 +32,18 @@
     <script>
         function go() {
             var now_url = window.location.href;
+            var tmp=url.split('/');
+            tmp[0]="http";
+            tmp.splice(3,1);
             if (now_url.indexOf("scp-pku") > -1) {
-                var real_url = now_url.replace("https://ouyen.github.io/scp_bot/", "https://scpsandboxcn.wikidot.com/")
+                tmp[2]="scpsandboxcn.wikidot.com";
+                // var real_url = now_url.replace("https://ouyen.github.io/scp_bot/", "https://scpsandboxcn.wikidot.com/")
             }
             else {
-                var real_url = now_url.replace("https://ouyen.github.io/scp_bot/", "http://scp-wiki-cn.wikidot.com/")
+                // var real_url = now_url.replace("https://ouyen.github.io/scp_bot/", "http://scp-wiki-cn.wikidot.com/")
+                tmp[2]="scp-wiki-cn.wikidot.com";
             }
-
+            var real_url=tmp.join('/');
             window.location.replace(real_url)
         }
         var go_continue = true;
@@ -48,7 +53,7 @@
             var ua = navigator.userAgent.toLocaleLowerCase();
             console.log(ua);
             var is_tencent = false
-            if (ua.indexOf(' qq') > -1 && ua.indexOf('mqqbrowser') > -1) {
+            if (ua.indexOf(' qq') > -1 ) {
                 //qq内置浏览器
                 // alert("Q!");
                 is_tencent = true;

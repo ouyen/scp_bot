@@ -19,3 +19,5 @@ SCP_DOMAIN_INDEX=1
 SETU_API_KEY=''
 
 HELP_MESSAGE='https://ouyen.github.io/scp_bot/'
+
+ECHO_SUPERUSRE=True

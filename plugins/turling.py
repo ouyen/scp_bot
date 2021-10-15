@@ -1,3 +1,5 @@
+from config import ECHO_SUPERUSRE
+from config import SUPERUSERS
 import json
 from typing import Optional
 
@@ -6,7 +8,8 @@ from aiocqhttp.message import escape
 from nonebot import on_command, CommandSession
 from nonebot import on_natural_language, NLPSession, IntentCommand
 from nonebot.helpers import context_id, render_expression
-TULING_API_KEY_num=0
+
+TULING_API_KEY_num = 0
 # 定义无法获取图灵回复时的「表达（Expression）」
 EXPR_DONT_UNDERSTAND = (
     # '我现在还不太明白你在说什么呢，但没关系，以后的我会变得更强呢！',
@@ -22,15 +25,15 @@ EXPR_DONT_UNDERSTAND = (
 async def tuling(session: CommandSession):
     # 获取可选参数，这里如果没有 message 参数，命令不会被中断，message 变量会是 None
     message = session.state.get('message')
-
-
+    if session.event['user_id'] in SUPERUSERS and ECHO_SUPERUSRE:
+        await session.send(session.event.raw_message)
 
     reply = await call_tuling_api(session, message)
 
-    if reply=='请求次数超限制!':
-    # if reply=='测试':
+    if reply == '请求次数超限制!':
+        # if reply=='测试':
         global TULING_API_KEY_num
-        TULING_API_KEY_num=(TULING_API_KEY_num+1)%5
+        TULING_API_KEY_num = (TULING_API_KEY_num + 1) % 5
         reply = await call_tuling_api(session, message)
         await session.send(escape(reply))
     elif reply:
