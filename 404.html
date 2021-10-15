@@ -33,7 +33,7 @@
         function go() {
             var now_url = window.location.href;
             var tmp=now_url.split('/');
-            tmp[0]="http";
+            tmp[0]="http:";
             tmp.splice(3,1);
             if (now_url.indexOf("scp-pku") > -1) {
                 tmp[2]="scpsandboxcn.wikidot.com";
@@ -43,8 +43,9 @@
                 // var real_url = now_url.replace("https://ouyen.github.io/scp_bot/", "http://scp-wiki-cn.wikidot.com/")
                 tmp[2]="scp-wiki-cn.wikidot.com";
             }
+            // console.log(tmp);
             var real_url=tmp.join('/');
-            window.location.replace(real_url)
+            location.replace(real_url)
         }
         var go_continue = true;
         function judge_and_go() {
