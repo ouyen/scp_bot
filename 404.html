@@ -22,31 +22,37 @@
             color: var(--weui-FG-0);
         }
     </style>
-    <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/css/banurl.88bd439b.css" rel="preload" as="style">
-    <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/banurl.1a2bf8d3.js" rel="preload" as="script">
-    <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/chunk-vendors.9f28b686.js" rel="preload" as="script">
+    <!-- <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/css/banurl.88bd439b.css" rel="preload" as="style"> -->
+    <!-- <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/banurl.1a2bf8d3.js" rel="preload" as="script"> -->
+    <!-- <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/chunk-vendors.9f28b686.js" rel="preload" as="script"> -->
     <link href="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/css/banurl.88bd439b.css" rel="stylesheet">
 
 
     <!-- begin -->
     <script>
-        function go() {
+        var real_url = "http://baidu.com";
+
+        function get_real_url() {
             var now_url = window.location.href;
-            var tmp=now_url.split('/');
-            tmp[0]="http:";
-            tmp.splice(3,1);
+            var now_url_list = now_url.split("/");
+            var now_url_list_length = now_url_list.length;
+            var now_url_last = now_url_list[now_url_list_length - 1];
+
             if (now_url.indexOf("scp-pku") > -1) {
-                tmp[2]="scpsandboxcn.wikidot.com";
-                // var real_url = now_url.replace("https://ouyen.github.io/scp_bot/", "https://scpsandboxcn.wikidot.com/")
+                real_url = "https://scpsandboxcn.wikidot.com/" + now_url_last;
             }
             else {
-                // var real_url = now_url.replace("https://ouyen.github.io/scp_bot/", "http://scp-wiki-cn.wikidot.com/")
-                tmp[2]="scp-wiki-cn.wikidot.com";
+                real_url = "https://scp-wiki-cn.wikidot.com/" + now_url_last;
             }
-            // console.log(tmp);
-            var real_url=tmp.join('/');
-            location.replace(real_url)
         }
+
+        get_real_url();
+        // alert(real_url);
+
+        function go(real_url) {
+            window.location.replace(real_url)
+        }
+
         var go_continue = true;
         function judge_and_go() {
             // alert("judge");
@@ -54,7 +60,7 @@
             var ua = navigator.userAgent.toLocaleLowerCase();
             console.log(ua);
             var is_tencent = false
-            if (ua.indexOf(' qq') > -1 ) {
+            if (ua.indexOf(' qq') > -1) {
                 //qq内置浏览器
                 // alert("Q!");
                 is_tencent = true;
@@ -108,7 +114,12 @@
     <script src="https://res.wx.qq.com/a/wx_fed/cdn_libs/res/vue/2.6.11/vue.min.js"></script>
 
     <!-- begin -->
+
     <center>
+        <script>
+            document.write(real_url);
+        </script>
+        <br>
         <br>
         <p>如果没有成功跳转请点击按钮:</p>
         <br>
@@ -117,10 +128,9 @@
 
     <!-- end -->
 
-    <script type="text/javascript" src="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/chunk-vendors.9f28b686.js">
-    </script>
-    <script type="text/javascript" src="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/banurl.1a2bf8d3.js">
-    </script>
+    <script type="text/javascript"
+        src="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/chunk-vendors.9f28b686.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/a/wx_fed/wx110/wx110/res/js/banurl.1a2bf8d3.js"></script>
 </body>
 
 </html>
